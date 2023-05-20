@@ -1,0 +1,200 @@
+<style>
+  .img-banner{
+    position: relative;
+    z-index: 0;
+  }
+  .info{
+    position: absolute;
+    top: 390px;
+
+    width: 85%;
+    height: 800px;
+    z-index: 3;
+    margin-bottom: 30px;
+  }
+
+  .detail-boxes{
+
+    width: 100%;
+    height: 600px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+
+  }
+
+  .box-1{
+
+    width: 72%;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .box-2{
+
+    width: 28%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .flat-name-address{
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 30%;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .flat-description{
+    background-color: lightgray;
+    border-radius: 5px;
+    height: 100%;
+    width: 100%;
+    padding: 20px;
+    position: relative;
+  }
+
+  .edit {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+  }
+  .box-2 div{
+    background-color: lightgray;
+    border-radius: 5px;
+  }
+
+  .booking-form{
+    padding-top: 20px;
+    padding-left: 20px;
+    height: 40%;
+    width: 100%;
+  }
+
+  .contact-links{
+    height: 15%;
+    width: 100%;
+    padding: 30px;
+  }
+
+  .flat-price-guests {
+    height: 15%;
+    width: 100%;
+    padding-top: 12px;
+    padding-left: 30px
+  }
+
+
+  .contact-list {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .contact-links-details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -10px;
+  }
+
+  li{
+    font-size: 30px;
+  }
+
+  .b-form{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .calendar-1{
+    width: 80%;
+    border: none;
+    border-radius: 5px;
+
+  }
+  .calendar-2{
+    width: 86%;
+    border-radius: 5px;
+    border: none;
+
+  }
+  #sb{
+    width: 95%;
+  }
+
+
+</style>
+
+<div class="img-banner">
+  <%= image_tag @flat.image, :style => "width: 100%; height: 380px;"%>
+
+</div>
+
+
+<div class="container">
+      <div class="info">
+        <div class="detail-boxes">
+          <div class="box-1">
+            <div class="flat-name-address">
+            <h1><%= @flat.name %></h1>
+            <span><%= @flat.address %></span>
+            </div>
+            <div class="flat-description">
+            <h1>A little more about this flat...</h1>
+            <span> <%= @flat.description %> </span>
+            <a href="/flats/<%= @flat.id%>/edit" class="btn btn-warning edit">Edit flat details</a>
+            </div>
+
+          </div>
+          <div class="box-2">
+            <div class="booking-form">
+            <h2 class="text-center mb-4">Book this place!</h2>
+            <form action="" class="b-form">
+
+              <div>
+                <label>From: </label>
+                <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2024-01-01" max="2024-12-31" class="calendar-1">
+              </div>
+
+              <div>
+                <label>To:    </label>
+                <input type="date" id="start" name="trip-start"
+                value="2018-07-22"
+                min="2024-01-01" max="2024-12-31" class="calendar-2">
+              </div>
+
+              <input type="submit" value="Book" class="btn btn-success mt-2" id="sb">
+
+            </form>
+            </div>
+            <div class="flat-price-guests">
+              <h4>Details</h4>
+              <span><i class="fa-solid fa-people-group"></i> <%= @flat.number_of_guests %></span>
+              <span><i class="fa-solid fa-euro-sign"></i> <%= @flat.price_per_night %></span>
+            </div>
+            <div class="contact-links">
+              <div class="contact-links-details">
+              <h4><strong>Share</strong></h4>
+                <ul class="contact-list">
+                  <li><i class="fa-brands fa-square-facebook"></i></li>
+                  <li><i class="fa-brands fa-square-twitter"></i></li>
+                  <li><i class="fa-brands fa-square-pinterest"></i></li>
+                  <li><i class="fa-solid fa-envelope"></i></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+</div>
